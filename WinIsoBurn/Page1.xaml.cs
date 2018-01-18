@@ -67,20 +67,20 @@ namespace WinIsoBurn
             catch (System.Runtime.InteropServices.COMException e2)
             {
                 NextPage.IsEnabled = false;
-                switch ((long)e2.ErrorCode)
+                switch ((uint)e2.ErrorCode)
                 {
-                    case 0x0C0AAB200L: //IMAPI_E_IMAGEMANAGER_IMAGE_NOT_ALIGNED : The image is not aligned on a 2kb sector boundary.
+                    case 0xC0AAB200: //IMAPI_E_IMAGEMANAGER_IMAGE_NOT_ALIGNED : The image is not aligned on a 2kb sector boundary.
                     s = Properties.Resources.Page1_ISO_Error_InvalidISO;
                     break;
 
-                    case 0xC0AAB202L: // IMAPI_E_IMAGEMANAGER_NO_IMAGE)
+                    case 0xC0AAB202: // IMAPI_E_IMAGEMANAGER_NO_IMAGE)
                     return false;
 
-                    case 0xC0AAB201L: //IMAPI_E_IMAGEMANAGER_NO_VALID_VD_FOUND : The image does not contain a valid volume descriptor.
+                    case 0xC0AAB201: //IMAPI_E_IMAGEMANAGER_NO_VALID_VD_FOUND : The image does not contain a valid volume descriptor.
                     s = Properties.Resources.Page1_ISO_Error_InvalidISO;
                     break;
 
-                    case 0xC0AAB203L: //IMAPI_E_IMAGEMANAGER_IMAGE_TOO_BIG : The provided image is too large to be validated as the size exceeds MAXLONG.
+                    case 0xC0AAB203: //IMAPI_E_IMAGEMANAGER_IMAGE_TOO_BIG : The provided image is too large to be validated as the size exceeds MAXLONG.
                     s = Properties.Resources.Page1_ISO_Error_FileSize;
                     break;
                 }
