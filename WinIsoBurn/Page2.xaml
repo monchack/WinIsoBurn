@@ -1,0 +1,33 @@
+﻿<Page x:Class="WinIsoBurn.Page2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:prop="clr-namespace:WinIsoBurn.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="460" d:DesignWidth="420"
+	  Title="Page2" Width="420" Loaded="OnLoaded" Unloaded="OnUnloaded">
+    <Grid >
+        <TextBlock Text="{x:Static prop:Resources.Page2_SelectDrive}" Margin="21,69,21,0" VerticalAlignment="Top" />
+         <ComboBox Height="26" Margin="21,89,20,0" Name="driveListBox" VerticalAlignment="Top" SelectionChanged="OnDriveSelected" />
+        <Label Content="{x:Static prop:Resources.Page2_MediaInTheDrive}" HorizontalAlignment="Left" Margin="21,202,0,0" Name="label1" Grid.Column="1" VerticalAlignment="Top"></Label>
+        <TextBox Margin="21,227,20,0" Name="insertedMedia" IsReadOnly="True" Grid.Column="1" VerticalAlignment="Top" Text="" Padding="1,2" />
+        <TextBlock Text="{x:Static prop:Resources.Page2_Title}" Grid.Column="1" Margin="21,18,20,0" Name="textBlock1" VerticalAlignment="Top" Foreground="#003399" FontSize="16" TextWrapping="Wrap" HorizontalAlignment="Left" />
+        <TextBlock Text="{x:Static prop:Resources.Page2_WritingSpeed}" Margin="24,269,0,0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <ComboBox Margin="21,287,0,0" Name="writingSpeedListBox" SelectionChanged="OnSpeedSelected" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="124" />
+        <CheckBox Content="{x:Static prop:Resources.Page2_OptionClosing}" Grid.Column="1" Margin="21,364,0,0" Name="checkToBeClose" VerticalAlignment="Top" IsChecked="True" HorizontalAlignment="Left"></CheckBox>
+        <CheckBox Content="{x:Static prop:Resources.Page2_OptionVerifying}" Margin="21,339,0,0" Name="checkToVeirfy" VerticalAlignment="Top" HorizontalAlignment="Left"></CheckBox>
+        <Label Content="{x:Static prop:Resources.Page2_SupportedMedia}" Grid.Column="1" HorizontalAlignment="Left" Margin="21,122,0,0" Name="label2" VerticalAlignment="Top" />
+        <TextBox Grid.Column="1" Height="45" HorizontalAlignment="Stretch" Margin="21,146,20,0" Name="textSupportedMedia" VerticalAlignment="Top" IsReadOnly="True" IsReadOnlyCaretVisible="True" IsEnabled="False" BorderThickness="1" TextWrapping="Wrap" />
+        <Button Content="{x:Static prop:Resources.Wizard_Back}" Grid.Column="1" HorizontalAlignment="Right" Margin="0,392,296,54" MinWidth="80" Name="button1" Padding="4,1" VerticalAlignment="Center" Click="button1_Click" Visibility="Hidden" />
+        <StatusBar Name="statusBar1" Grid.Column="1" VerticalAlignment="Bottom" Panel.ZIndex="-1" >
+            <StatusBarItem HorizontalAlignment="Right">
+            <WrapPanel HorizontalAlignment="Right" Margin="0,0,4,0">
+                <Button Name="NextPage" Content="{x:Static prop:Resources.Wizard_Create}" VerticalAlignment="Center" Click="NextPage_Click" IsEnabled="False" MinWidth="84" Margin="6,8,0,8" Padding="6,1" />
+                <Button Name="Cancel" Content="{x:Static prop:Resources.Wizard_Cancel}" VerticalAlignment="Center" Click="Cancel_Click" MinWidth="84" Margin="6,8,0,8" Padding="6,1" />
+                <Button Name="ReturnPage" Content="{x:Static prop:Resources.Wizard_Back}" VerticalAlignment="Center" Click="OnBackClicked"  MinWidth="84" Margin="6,8,0,8" Padding="6,1" />
+            </WrapPanel>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Page>

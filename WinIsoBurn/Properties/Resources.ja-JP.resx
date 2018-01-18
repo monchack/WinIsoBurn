@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MediaErase_Description" xml:space="preserve">
+    <value>消去中はキャンセルできません。消去には時間がかかります。</value>
+  </data>
+  <data name="MediaErase_Erasing" xml:space="preserve">
+    <value>消去しています...</value>
+  </data>
+  <data name="MediaErase_Quick" xml:space="preserve">
+    <value>クイック消去する</value>
+  </data>
+  <data name="MediaErase_Start" xml:space="preserve">
+    <value>消去開始</value>
+  </data>
+  <data name="MediaErase_Title" xml:space="preserve">
+    <value>リライタブル メディアが選択されました。メディアを消去する必要があります。</value>
+  </data>
+  <data name="MediaTypeError_InvalidResponseFromDevice" xml:space="preserve">
+    <value>ドライブが不正な応答を返しました</value>
+  </data>
+  <data name="MediaTypeError_NoMediaInserted" xml:space="preserve">
+    <value>メディアがありません</value>
+  </data>
+  <data name="MediaType_BlankBDR" xml:space="preserve">
+    <value>未使用の BD-R</value>
+  </data>
+  <data name="MediaType_BlankCDR" xml:space="preserve">
+    <value>未使用の CD-R</value>
+  </data>
+  <data name="MediaType_BlankDVDPlusR" xml:space="preserve">
+    <value>未使用の DVD+R</value>
+  </data>
+  <data name="MediaType_BlankDVDPlusR_DL" xml:space="preserve">
+    <value>未使用の DVD+R DL</value>
+  </data>
+  <data name="MediaType_BlankDVDR" xml:space="preserve">
+    <value>未使用の DVD-R</value>
+  </data>
+  <data name="MediaType_BlankDVDR_DL" xml:space="preserve">
+    <value>未使用の DVD-R DL</value>
+  </data>
+  <data name="MediaType_DVDPlusRW" xml:space="preserve">
+    <value>DVD+RW</value>
+  </data>
+  <data name="MediaType_DVDRAM" xml:space="preserve">
+    <value>DVD-RAM</value>
+  </data>
+  <data name="MediaType_DVDROM" xml:space="preserve">
+    <value>DVD-ROM または書き込み済みの DVD</value>
+  </data>
+  <data name="MediaType_DVDRW" xml:space="preserve">
+    <value>DVD-RW</value>
+  </data>
+  <data name="MediaType_UnknownMedia" xml:space="preserve">
+    <value>認識できないメディアです</value>
+  </data>
+  <data name="Page1_ButtonFileSelect" xml:space="preserve">
+    <value>ファイルの選択</value>
+  </data>
+  <data name="Page1_ButtonISOCheck" xml:space="preserve">
+    <value>イメージファイルの互換性を確認する</value>
+  </data>
+  <data name="Page1_ISO_Error_FileSize" xml:space="preserve">
+    <value>このファイルはサイズが大きすぎるため、使用できません。ファイルを再度確認するか、選択し直してください。</value>
+  </data>
+  <data name="Page1_ISO_Error_InvalidISO" xml:space="preserve">
+    <value>このファイルは規格を満たしていないため、使用できません。ファイルを再度確認するか、選択し直してください。</value>
+  </data>
+  <data name="Page1_ISO_NoProblem" xml:space="preserve">
+    <value>問題は見つかりませんでした。イメージファイルは正しいISOファイルです。</value>
+  </data>
+  <data name="Page1_OpenFileDialogTitle" xml:space="preserve">
+    <value>ファイルを開く</value>
+  </data>
+  <data name="Page1_Title" xml:space="preserve">
+    <value>書き込むイメージファイルを選択してください</value>
+  </data>
+  <data name="Page1_WindowTitle" xml:space="preserve">
+    <value>書き込むファイルの選択</value>
+  </data>
+  <data name="Page2_MediaInTheDrive" xml:space="preserve">
+    <value>ドライブ中のメディア:</value>
+  </data>
+  <data name="Page2_OptionClosing" xml:space="preserve">
+    <value>書き込み終了後、ディスクをクローズする</value>
+  </data>
+  <data name="Page2_OptionVerifying" xml:space="preserve">
+    <value>書き込み終了後、続けてディスクの内容を確認(ベリファイ)する</value>
+  </data>
+  <data name="Page2_SelectDrive" xml:space="preserve">
+    <value>ドライブを選択してください:</value>
+  </data>
+  <data name="Page2_SpeedMax" xml:space="preserve">
+    <value>最大速度</value>
+  </data>
+  <data name="Page2_SpeedSuffix" xml:space="preserve">
+    <value> 倍速</value>
+  </data>
+  <data name="Page2_SpeedUnavailable" xml:space="preserve">
+    <value>(情報取得できませんでした)</value>
+  </data>
+  <data name="Page2_SupportedMedia" xml:space="preserve">
+    <value>対応しているメディア:</value>
+  </data>
+  <data name="Page2_Title" xml:space="preserve">
+    <value>ドライブを選択し、メディアをセットしてください</value>
+  </data>
+  <data name="Page2_WindowTitle" xml:space="preserve">
+    <value>ドライブとメディアの準備</value>
+  </data>
+  <data name="Page2_WritingSpeed" xml:space="preserve">
+    <value>書き込み速度:</value>
+  </data>
+  <data name="Page3_Canceling" xml:space="preserve">
+    <value>キャンセルしています...</value>
+  </data>
+  <data name="Page3_Error_NotEnoughCapacity" xml:space="preserve">
+    <value>このメディアには十分な容量がありません。書き込みを中止します。メディアの種類と容量を確認してください。</value>
+  </data>
+  <data name="Page3_FinalProcessing" xml:space="preserve">
+    <value>ディスク書き込みの最終処理をしています...</value>
+  </data>
+  <data name="Page3_TimeRemainings" xml:space="preserve">
+    <value>残り時間: </value>
+  </data>
+  <data name="Page3_Title" xml:space="preserve">
+    <value>ディスクに書き込んでいます...</value>
+  </data>
+  <data name="Page3_Verifying" xml:space="preserve">
+    <value>ディスクに正しく書き込みされたか確認をしています...</value>
+  </data>
+  <data name="Page3_WindowTitle" xml:space="preserve">
+    <value>メディアへの書き込み</value>
+  </data>
+  <data name="Page4_Canceled" xml:space="preserve">
+    <value>書き込みはキャンセルされました</value>
+  </data>
+  <data name="Page4_Description" xml:space="preserve">
+    <value>メディアを取り出し、[閉じる]をクリックして終了してください。</value>
+  </data>
+  <data name="Page4_Title" xml:space="preserve">
+    <value>書き込みは終了しました</value>
+  </data>
+  <data name="Page4_WindowTitle" xml:space="preserve">
+    <value>作成終了</value>
+  </data>
+  <data name="Wizard_Back" xml:space="preserve">
+    <value>戻る</value>
+  </data>
+  <data name="Wizard_Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="Wizard_Close" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <data name="Wizard_Create" xml:space="preserve">
+    <value>作成開始</value>
+  </data>
+  <data name="Wizard_Next" xml:space="preserve">
+    <value>次へ</value>
+  </data>
+</root>

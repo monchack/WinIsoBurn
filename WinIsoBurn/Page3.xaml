@@ -1,0 +1,30 @@
+﻿<Page x:Class="WinIsoBurn.Page3"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:prop="clr-namespace:WinIsoBurn.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="360" d:DesignWidth="420"
+	  Title="Page3" Width="420" Loaded="OnLoaded" Unloaded="OnUnloaded">
+    <Grid Width="420">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*" />
+            <ColumnDefinition Width="420*" />
+        </Grid.ColumnDefinitions>
+        <ProgressBar Name="WritingProgress" Grid.Column="1" Height="26" Margin="21,84,20,0" VerticalAlignment="Top" />
+        <TextBlock Name="mainText" Text="{x:Static prop:Resources.Page3_Title}" Grid.Column="1" Margin="21,31,20,0" VerticalAlignment="Top" FontSize="16" Foreground="#003399" TextWrapping="Wrap" HorizontalAlignment="Left" />
+        <TextBlock Name="percentProgress" Grid.Column="1" Height="24" HorizontalAlignment="Right" Margin="0,116,20,0" VerticalAlignment="Top" Width="173" Foreground="#323232" TextAlignment="Right" />
+        <TextBlock Name="remainingText" Grid.Column="1" Height="24" HorizontalAlignment="Left" Margin="21,116,0,0" VerticalAlignment="Top" Width="198" Foreground="#323232" TextAlignment="Left" />
+
+        <StatusBar Name="statusBar1" Grid.Column="1" VerticalAlignment="Bottom" Panel.ZIndex="-1" >
+            <StatusBarItem HorizontalAlignment="Right">
+                <WrapPanel HorizontalAlignment="Right" Margin="0,0,4,0">
+                    <Button Name="CancelButton" Content="{x:Static prop:Resources.Wizard_Cancel}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Cancel_Click" MinWidth="84" Margin="6,8,0,8" Grid.Row="3" Padding="6,1" />
+                </WrapPanel>
+            </StatusBarItem>
+        </StatusBar>
+
+
+    </Grid>
+</Page>

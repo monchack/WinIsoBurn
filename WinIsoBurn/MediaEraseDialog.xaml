@@ -1,0 +1,17 @@
+﻿<Window x:Class="WinIsoBurn.MediaEraseDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prop="clr-namespace:WinIsoBurn.Properties"
+    Title="メディアの消去" Height="293" Width="400" ResizeMode="NoResize" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" WindowStartupLocation="CenterOwner">
+ 
+    <Grid>
+        <TextBlock Text="{x:Static prop:Resources.MediaErase_Title}" Foreground="#003399" FontSize="16" Height="54" Margin="20,13,12,0" Name="textBlock2" VerticalAlignment="Top" TextWrapping="Wrap" />
+        <Button Name="EraseStartButton" Content="{x:Static prop:Resources.MediaErase_Start}" Margin="0,0,110,12" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="EraseStart_Click" Grid.Column="1" Padding="4,1" MinWidth="84" />
+        <Button Name="CancelButton" Content="{x:Static prop:Resources.Wizard_Cancel}" Margin="0,0,20,12" Height="23" VerticalAlignment="Bottom" Click="Cancel_Click" Grid.Column="1" HorizontalAlignment="Right" Padding="4,1" MinWidth="84" />
+        <ProgressBar  Name="eraseProgress" IsEnabled="False" Margin="20,0,19,100" VerticalAlignment="Bottom" Height="20" />
+        <TextBlock Name="percentProgress" Height="14" HorizontalAlignment="Right" Margin="0,0,19,84" VerticalAlignment="Bottom" Width="114" Foreground="#323232" TextAlignment="Right" />
+        <TextBlock Text="{x:Static prop:Resources.MediaErase_Description}" Margin="20,70,18,0" Name="textBlock1" TextWrapping="Wrap" Height="45" VerticalAlignment="Top" />
+        <TextBlock Name="eraseStatusText" HorizontalAlignment="Left" Margin="21,117,0,121" Width="149" />
+        <CheckBox Content="{x:Static prop:Resources.MediaErase_Quick}" Height="21" HorizontalAlignment="Left" Margin="21,0,0,68" Name="checkQuickErase" VerticalAlignment="Bottom" Width="126"></CheckBox>
+    </Grid>
+</Window>

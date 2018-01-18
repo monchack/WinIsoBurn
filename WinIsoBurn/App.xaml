@@ -1,0 +1,9 @@
+﻿<Application x:Class="WinIsoBurn.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" StartupUri="MainWindow.xaml" xmlns:my="clr-namespace:System;assembly=mscorlib"
+             xmlns:properties="clr-namespace:WinIsoBurn.Properties"
+             xmlns:prop="clr-namespace:WinIsoBurn.Properties">
+    <Application.Resources>
+        <prop:Resources x:Key="resources" />
+  </Application.Resources>
+</Application>
