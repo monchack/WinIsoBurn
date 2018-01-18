@@ -28,17 +28,16 @@ namespace WinIsoBurn
         }
         protected override void OnSourceInitialized(EventArgs e)
         {
-			base.OnSourceInitialized(e);
+            base.OnSourceInitialized(e);
         }
-
-		private void onClosing(object sender, System.ComponentModel.CancelEventArgs e)
-		{
-			Page3 p = this.NavigationService.Content as Page3;
-			if (p != null)
-			{
-				p.Cancel_Click(null, null);
-				e.Cancel = true;
-			}
-		}
+        private void onClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Page3 p = this.NavigationService.Content as Page3;
+            if (p != null)
+            {
+                p.Cancel_Click(null, null);
+                e.Cancel = true;
+            }
+        }
     }
 }

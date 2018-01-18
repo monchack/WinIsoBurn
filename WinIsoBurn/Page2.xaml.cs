@@ -21,9 +21,9 @@ namespace WinIsoBurn
     {
         MainWindow mainWindow;
         public ManagementEventWatcher eventWatcherDriveArrival;
-		public ManagementEventWatcher eventWatcherDriveRemoval;
-		public ManagementEventWatcher eventWatcherOpticalDisc;
-		
+        public ManagementEventWatcher eventWatcherDriveRemoval;
+        public ManagementEventWatcher eventWatcherOpticalDisc;
+        
         String [] driveId;
         bool isBD = false;
         bool isCD = false;
@@ -44,24 +44,24 @@ namespace WinIsoBurn
             UpdateMediaStatus();
             UpdateWritingSpeedList();
         }
-		
-		public void UpdateWritingSpeedList()
-		{
-			if (selectedSpeed != 0) return;
-			if (!writingSpeedListBox.Items.IsEmpty)
-			{
-				this.writingSpeedListBox.Items.Clear();
-			}
-			if (!isSupportedMediaReady)
-			{
-				writingSpeedListBox.Items.Add("");
-				writingSpeedListBox.SelectedIndex = 0;
-				writingSpeedListBox.IsEnabled = false;
-				return;
-			}
+        
+        public void UpdateWritingSpeedList()
+        {
+            if (selectedSpeed != 0) return;
+            if (!writingSpeedListBox.Items.IsEmpty)
+            {
+                this.writingSpeedListBox.Items.Clear();
+            }
+            if (!isSupportedMediaReady)
+            {
+                writingSpeedListBox.Items.Add("");
+                writingSpeedListBox.SelectedIndex = 0;
+                writingSpeedListBox.IsEnabled = false;
+                return;
+            }
 
- 			IDiscRecorder2 recorder = new MsftDiscRecorder2();
-			recorder.InitializeDiscRecorder(selectedDrive);
+             IDiscRecorder2 recorder = new MsftDiscRecorder2();
+            recorder.InitializeDiscRecorder(selectedDrive);
 
             IDiscFormat2Data dataWriterImage = new MsftDiscFormat2Data();
             object[] speeds = null;
@@ -76,13 +76,13 @@ namespace WinIsoBurn
                 {
                 }
             }
-			if (speeds != null)
-			{
-				writingSpeedListBox.IsEnabled = true;
-				writingSpeed = new int[speeds.Length];
-				for (int i = 0; i < speeds.Length; ++i)
-				{
-					int n = writingSpeed[i] = (int)speeds[i];
+            if (speeds != null)
+            {
+                writingSpeedListBox.IsEnabled = true;
+                writingSpeed = new int[speeds.Length];
+                for (int i = 0; i < speeds.Length; ++i)
+                {
+                    int n = writingSpeed[i] = (int)speeds[i];
                     if (isCD)
                     {
                         n = ((n + 1) * 10) / 75; // n = (n * 2) / 150 * 10;
@@ -113,15 +113,15 @@ namespace WinIsoBurn
                     }
                     double f = (double)n / 10.0;
                     writingSpeedListBox.Items.Add(f.ToString("0.#") + Properties.Resources.Page2_SpeedSuffix);
-				}
-				writingSpeedListBox.SelectedIndex = 0;
-				selectedSpeed = (int)speeds[0];
-			}
-			else
-			{
-				writingSpeedListBox.IsEnabled = false;
-				selectedSpeed = 0;
-			}
+                }
+                writingSpeedListBox.SelectedIndex = 0;
+                selectedSpeed = (int)speeds[0];
+            }
+            else
+            {
+                writingSpeedListBox.IsEnabled = false;
+                selectedSpeed = 0;
+            }
         }
 
         public void UpdateMediaStatus()
@@ -156,14 +156,14 @@ namespace WinIsoBurn
                 }
             }
 
-			int nf, nsec;
-			try{
-				nf = dataWriterImage.FreeSectorsOnMedia;
-				nsec = dataWriterImage.TotalSectorsOnMedia;
-			}
-			catch (System.Runtime.InteropServices.COMException)
-			{
-			}
+            int nf, nsec;
+            try{
+                nf = dataWriterImage.FreeSectorsOnMedia;
+                nsec = dataWriterImage.TotalSectorsOnMedia;
+            }
+            catch (System.Runtime.InteropServices.COMException)
+            {
+            }
 
             IDiscRecorder2Ex rc2 = recorder as IDiscRecorder2Ex;
 
@@ -237,68 +237,68 @@ namespace WinIsoBurn
                 switch (n)
                 {
                     case IMAPI_MEDIA_PHYSICAL_TYPE.IMAPI_MEDIA_TYPE_CDROM:
-					insertedMedia.Text = "CD-ROM or Audio CD";
+                    insertedMedia.Text = "CD-ROM or Audio CD";
                     isCD = true;
-					isBD = false;
-					break;
+                    isBD = false;
+                    break;
 
                     case IMAPI_MEDIA_PHYSICAL_TYPE.IMAPI_MEDIA_TYPE_CDR:
                     insertedMedia.Text = Properties.Resources.MediaType_BlankCDR;//"Blank CD-R";
-					isSupportedMediaReady = true;
+                    isSupportedMediaReady = true;
                     isCD = true;
                     isBD = false;
                     break;
 
                     case IMAPI_MEDIA_PHYSICAL_TYPE.IMAPI_MEDIA_TYPE_CDRW:
                     insertedMedia.Text = "CD-RW";
-					isSupportedMediaReady = true;
-					isRewritableMedia = true;
+                    isSupportedMediaReady = true;
+                    isRewritableMedia = true;
                     isCD = true;
                     isBD = false;
                     break;                   
                                         
                     case IMAPI_MEDIA_PHYSICAL_TYPE.IMAPI_MEDIA_TYPE_DVDDASHRW:
                     insertedMedia.Text = Properties.Resources.MediaType_DVDRW;
-					isSupportedMediaReady = true;
-					isRewritableMedia = true;
+                    isSupportedMediaReady = true;
+                    isRewritableMedia = true;
                     isCD = false;
                     isBD = false;
-					break;
+                    break;
                     
                     case IMAPI_MEDIA_PHYSICAL_TYPE.IMAPI_MEDIA_TYPE_DVDDASHR:
-					insertedMedia.Text = Properties.Resources.MediaType_BlankDVDR;//"Blank DVD-R";
-					isSupportedMediaReady = true;
+                    insertedMedia.Text = Properties.Resources.MediaType_BlankDVDR;//"Blank DVD-R";
+                    isSupportedMediaReady = true;
                     isCD = false;
                     isBD = false;
-					break;
+                    break;
                     
-					case IMAPI_MEDIA_PHYSICAL_TYPE.IMAPI_MEDIA_TYPE_DVDROM:
+                    case IMAPI_MEDIA_PHYSICAL_TYPE.IMAPI_MEDIA_TYPE_DVDROM:
                     insertedMedia.Text = Properties.Resources.MediaType_DVDROM;
                     isCD = false;
                     isBD = false;
-					break;
+                    break;
 
                     case IMAPI_MEDIA_PHYSICAL_TYPE.IMAPI_MEDIA_TYPE_DVDPLUSR:
                     insertedMedia.Text = Properties.Resources.MediaType_BlankDVDPlusR;//"Blank DVD+R";
-					isSupportedMediaReady = true;
+                    isSupportedMediaReady = true;
                     isCD = false;
                     isBD = false;
                     break;
                     
                     case IMAPI_MEDIA_PHYSICAL_TYPE.IMAPI_MEDIA_TYPE_DVDPLUSRW:
                     insertedMedia.Text = Properties.Resources.MediaType_DVDPlusRW;
-					isSupportedMediaReady = true;
-					isRewritableMedia = true;
+                    isSupportedMediaReady = true;
+                    isRewritableMedia = true;
                     isCD = false;
                     isBD = false;
-					break;                  
+                    break;                  
 
                     case IMAPI_MEDIA_PHYSICAL_TYPE.IMAPI_MEDIA_TYPE_DVDRAM: //IMAPI_PROFILE_TYPE_DVD_RAM:
                     insertedMedia.Text = Properties.Resources.MediaType_DVDRAM;
-					isSupportedMediaReady = true;
+                    isSupportedMediaReady = true;
                     isCD = false;
                     isBD = false;
-					isRewritableMedia = true;
+                    isRewritableMedia = true;
                     break;
 
                     case IMAPI_MEDIA_PHYSICAL_TYPE.IMAPI_MEDIA_TYPE_BDR:
@@ -318,17 +318,17 @@ namespace WinIsoBurn
                     
                     case IMAPI_MEDIA_PHYSICAL_TYPE.IMAPI_MEDIA_TYPE_DVDDASHR_DUALLAYER:
                     insertedMedia.Text = Properties.Resources.MediaType_BlankDVDR_DL;
-					isSupportedMediaReady = true;
+                    isSupportedMediaReady = true;
                     isCD = false;
-					isBD = false;
-					break;     					
+                    isBD = false;
+                    break;                         
 
-					case IMAPI_MEDIA_PHYSICAL_TYPE.IMAPI_MEDIA_TYPE_DVDPLUSR_DUALLAYER:
+                    case IMAPI_MEDIA_PHYSICAL_TYPE.IMAPI_MEDIA_TYPE_DVDPLUSR_DUALLAYER:
                     insertedMedia.Text = Properties.Resources.MediaType_BlankDVDPlusR_DL;
-					isSupportedMediaReady = true;
+                    isSupportedMediaReady = true;
                     isCD = false;
-					isBD = false;
-					break;                    
+                    isBD = false;
+                    break;                    
                 
                     default:
                     insertedMedia.Text = Properties.Resources.MediaType_UnknownMedia;
@@ -337,10 +337,10 @@ namespace WinIsoBurn
             }
             catch (System.Runtime.InteropServices.COMException e)
             {
-				if ((uint)e.ErrorCode == 0xC0AA0202) //E_IMAPI_RECORDER_MEDIA_NO_MEDIA
-				{
+                if ((uint)e.ErrorCode == 0xC0AA0202) //E_IMAPI_RECORDER_MEDIA_NO_MEDIA
+                {
                     insertedMedia.Text = Properties.Resources.MediaTypeError_NoMediaInserted; //"No media inserted.";
-				}
+                }
                 else if ((uint)e.ErrorCode == 0xC0AA02FF) //E_IMAPI_RECORDER_INVALID_RESPONSE_FROM_DEVICE
                 {
                     insertedMedia.Text = Properties.Resources.MediaTypeError_InvalidResponseFromDevice;
@@ -355,9 +355,9 @@ namespace WinIsoBurn
             
             if (isBD)
             {
-				//aaa = dataWriterImage.TotalSectorsOnMedia;
-				//aaa = dataWriterImage.FreeSectorsOnMedia;
-			}
+                //aaa = dataWriterImage.TotalSectorsOnMedia;
+                //aaa = dataWriterImage.FreeSectorsOnMedia;
+            }
         }
 
         public void UpdateDriveList()
@@ -365,152 +365,152 @@ namespace WinIsoBurn
             IDiscMaster2 discMaster = new MsftDiscMaster2();
           //  IEnumerator ie = discMaster.GetEnumerator();
             int count = discMaster.Count;
-			int cursorPosition = -1;
-			int i;
+            int cursorPosition = -1;
+            int i;
             
             if (driveCount == discMaster.Count) return;
             if (!driveListBox.Items.IsEmpty)
-			{
-				driveListBox.Items.Clear();
-            }
-			if (discMaster.Count == 0)
-			{
-				selectedSpeed = 0;
-				driveListBox.Items.Add("");
-				//driveListBox.SelectedIndex = 0;				
-				driveListBox.IsEnabled = false;
-				return;
-			}            
-
-			driveId = new String[discMaster.Count];
-			for (i = 0; i < count; ++i)
             {
-				IDiscRecorder2 recorder = new MsftDiscRecorder2();
+                driveListBox.Items.Clear();
+            }
+            if (discMaster.Count == 0)
+            {
+                selectedSpeed = 0;
+                driveListBox.Items.Add("");
+                //driveListBox.SelectedIndex = 0;                
+                driveListBox.IsEnabled = false;
+                return;
+            }            
+
+            driveId = new String[discMaster.Count];
+            for (i = 0; i < count; ++i)
+            {
+                IDiscRecorder2 recorder = new MsftDiscRecorder2();
                 String s = discMaster[i];
-				if (s == selectedDrive) cursorPosition = i;
+                if (s == selectedDrive) cursorPosition = i;
                 driveId[i] = s;
                 recorder.InitializeDiscRecorder(s);
                 s = recorder.ProductId;
                 this.driveListBox.Items.Add(s);
             }
-			if (cursorPosition == -1)
-			{
-				selectedSpeed = 0;
-				cursorPosition = 0;
-			}
-			driveListBox.SelectedIndex = cursorPosition;
-			selectedDrive = discMaster[cursorPosition];
-			driveListBox.IsEnabled = true;
+            if (cursorPosition == -1)
+            {
+                selectedSpeed = 0;
+                cursorPosition = 0;
+            }
+            driveListBox.SelectedIndex = cursorPosition;
+            selectedDrive = discMaster[cursorPosition];
+            driveListBox.IsEnabled = true;
         }
 
-		protected override void OnInitialized(EventArgs e)
+        protected override void OnInitialized(EventArgs e)
         {
-			WqlEventQuery q;
-			ConnectionOptions opt;
+            WqlEventQuery q;
+            ConnectionOptions opt;
             
             opt = new ConnectionOptions();
             opt.EnablePrivileges = true; //sets required privilege
             ManagementScope scope = new ManagementScope("root\\CIMV2", opt);
 
-			// drive arrival event
+            // drive arrival event
             q = new WqlEventQuery();
-			q.EventClassName = "__InstanceCreationEvent";
+            q.EventClassName = "__InstanceCreationEvent";
             q.WithinInterval = new TimeSpan(0, 0, 1);
-			q.Condition = @"TargetInstance ISA 'Win32_LogicalDisk' and TargetInstance.DriveType = 5";
+            q.Condition = @"TargetInstance ISA 'Win32_LogicalDisk' and TargetInstance.DriveType = 5";
             eventWatcherDriveArrival = new ManagementEventWatcher(scope, q);
-			eventWatcherDriveArrival.EventArrived += new System.Management.EventArrivedEventHandler(this.OnWMIDriveEvent);
+            eventWatcherDriveArrival.EventArrived += new System.Management.EventArrivedEventHandler(this.OnWMIDriveEvent);
 
-			// drive removal event
-			q = new WqlEventQuery();
-			q.EventClassName = "__InstanceDeletionEvent";
-			q.WithinInterval = new TimeSpan(0, 0, 1);
-			q.Condition = @"TargetInstance ISA 'Win32_LogicalDisk' and TargetInstance.DriveType = 5";
-			eventWatcherDriveRemoval = new ManagementEventWatcher(scope, q);
-			eventWatcherDriveRemoval.EventArrived += new System.Management.EventArrivedEventHandler(this.OnWMIDriveEvent);
+            // drive removal event
+            q = new WqlEventQuery();
+            q.EventClassName = "__InstanceDeletionEvent";
+            q.WithinInterval = new TimeSpan(0, 0, 1);
+            q.Condition = @"TargetInstance ISA 'Win32_LogicalDisk' and TargetInstance.DriveType = 5";
+            eventWatcherDriveRemoval = new ManagementEventWatcher(scope, q);
+            eventWatcherDriveRemoval.EventArrived += new System.Management.EventArrivedEventHandler(this.OnWMIDriveEvent);
 
-			// disc event CDS_DRIVE_NOT_READY
-			q = new WqlEventQuery();
-			q.EventClassName = "__InstanceModificationEvent";
-			//q.EventClassName = "__InstanceCreationEvent";
-			q.WithinInterval = new TimeSpan(0, 0, 1);
-			q.Condition = @"TargetInstance ISA 'Win32_LogicalDisk' and TargetInstance.DriveType = 5"; //
-			//q.Condition = @"TargetInstance ISA 'Win32_DiskDrive'";
-			eventWatcherOpticalDisc = new ManagementEventWatcher(scope, q);
-			eventWatcherOpticalDisc.EventArrived += new System.Management.EventArrivedEventHandler(this.OnWMIDiskEvent);
-			
+            // disc event CDS_DRIVE_NOT_READY
+            q = new WqlEventQuery();
+            q.EventClassName = "__InstanceModificationEvent";
+            //q.EventClassName = "__InstanceCreationEvent";
+            q.WithinInterval = new TimeSpan(0, 0, 1);
+            q.Condition = @"TargetInstance ISA 'Win32_LogicalDisk' and TargetInstance.DriveType = 5"; //
+            //q.Condition = @"TargetInstance ISA 'Win32_DiskDrive'";
+            eventWatcherOpticalDisc = new ManagementEventWatcher(scope, q);
+            eventWatcherOpticalDisc.EventArrived += new System.Management.EventArrivedEventHandler(this.OnWMIDiskEvent);
+            
             this.Dispatcher.ShutdownStarted += Dispatcher_ShutdownStarted;
             
             base.OnInitialized(e);
         }
 
-		void OnWMIDriveEvent(object sender, EventArrivedEventArgs e)
-		{
-			try
-			{
-				Dispatcher.Invoke(new System.EventHandler(OnDeviceChanged), this, null);
-			}
-			catch
-			{
-			}
-		}
+        void OnWMIDriveEvent(object sender, EventArrivedEventArgs e)
+        {
+            try
+            {
+                Dispatcher.Invoke(new System.EventHandler(OnDeviceChanged), this, null);
+            }
+            catch
+            {
+            }
+        }
 
-		void OnWMIDiskEvent(object sender, EventArrivedEventArgs e)
-		{
-			try
-			{
-				Dispatcher.Invoke(new System.EventHandler(OnDiscChanged), this, null);//????
-			}
-			catch
-			{
-			}
-		}		
+        void OnWMIDiskEvent(object sender, EventArrivedEventArgs e)
+        {
+            try
+            {
+                Dispatcher.Invoke(new System.EventHandler(OnDiscChanged), this, null);//????
+            }
+            catch
+            {
+            }
+        }        
        
         private void Dispatcher_ShutdownStarted( object sender, EventArgs e )
         {
-			eventWatcherDriveArrival.Stop();
-			eventWatcherDriveRemoval.Stop();
-			eventWatcherOpticalDisc.Stop();
-			this.Dispatcher.ShutdownStarted -= Dispatcher_ShutdownStarted;
+            eventWatcherDriveArrival.Stop();
+            eventWatcherDriveRemoval.Stop();
+            eventWatcherOpticalDisc.Stop();
+            this.Dispatcher.ShutdownStarted -= Dispatcher_ShutdownStarted;
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-			eventWatcherDriveArrival.Start();
-			eventWatcherDriveRemoval.Start();
-			eventWatcherOpticalDisc.Start();
+            eventWatcherDriveArrival.Start();
+            eventWatcherDriveRemoval.Start();
+            eventWatcherOpticalDisc.Start();
         }
         
         private void OnUnloaded(object sender, RoutedEventArgs e)
         {
-			eventWatcherDriveArrival.Stop();
-			eventWatcherDriveRemoval.Stop();
-			eventWatcherOpticalDisc.Stop();
+            eventWatcherDriveArrival.Stop();
+            eventWatcherDriveRemoval.Stop();
+            eventWatcherOpticalDisc.Stop();
         }
 
         private void NextPage_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Properties["driveId"] = selectedDrive;
-			Application.Current.Properties["writingSpeed"] = selectedSpeed;
-			Application.Current.Properties["toBeClosed"] = checkToBeClose.IsChecked;
-			Application.Current.Properties["toBeVerified"] = checkToVeirfy.IsChecked;
+            Application.Current.Properties["writingSpeed"] = selectedSpeed;
+            Application.Current.Properties["toBeClosed"] = checkToBeClose.IsChecked;
+            Application.Current.Properties["toBeVerified"] = checkToVeirfy.IsChecked;
 
-			if (isRewritableMedia)
-			{
-				eventWatcherDriveArrival.Stop();
-				eventWatcherDriveRemoval.Stop();
-				eventWatcherOpticalDisc.Stop();
-				
-				MediaEraseDialog dlg = new MediaEraseDialog();
-				dlg.Owner = mainWindow;
-				Nullable<bool> dialogResult = dlg.ShowDialog();
-				if (dialogResult == false)
-				{
-					eventWatcherDriveArrival.Start();
-					eventWatcherDriveRemoval.Start();
-					eventWatcherOpticalDisc.Start();
-					return;
-				}
-			}			
+            if (isRewritableMedia)
+            {
+                eventWatcherDriveArrival.Stop();
+                eventWatcherDriveRemoval.Stop();
+                eventWatcherOpticalDisc.Stop();
+                
+                MediaEraseDialog dlg = new MediaEraseDialog();
+                dlg.Owner = mainWindow;
+                Nullable<bool> dialogResult = dlg.ShowDialog();
+                if (dialogResult == false)
+                {
+                    eventWatcherDriveArrival.Start();
+                    eventWatcherDriveRemoval.Start();
+                    eventWatcherOpticalDisc.Start();
+                    return;
+                }
+            }            
             this.NavigationService.Navigate(new Page3(mainWindow));
         }
 
@@ -524,40 +524,40 @@ namespace WinIsoBurn
             if( NavigationService.CanGoBack )　NavigationService.GoBack();
         }
 
-		public void OnDiscChanged(object sender, System.EventArgs a)
-		{
+        public void OnDiscChanged(object sender, System.EventArgs a)
+        {
             String s = insertedMedia.Text;
-			UpdateMediaStatus();
-			if (s != insertedMedia.Text)
-			{
-				selectedSpeed = 0;
-				UpdateWritingSpeedList();
-			}
-		}
+            UpdateMediaStatus();
+            if (s != insertedMedia.Text)
+            {
+                selectedSpeed = 0;
+                UpdateWritingSpeedList();
+            }
+        }
 
         public void OnDeviceChanged(object sender, System.EventArgs a)
         {
              UpdateDriveList();
              selectedSpeed = 0;
              UpdateMediaStatus();
-			 UpdateWritingSpeedList();
+             UpdateWritingSpeedList();
         }
 
         private void OnDriveSelected(object sender, SelectionChangedEventArgs e)
         {
-			if (driveListBox.SelectedIndex >= 0)
-			{
-				selectedDrive = driveId[driveListBox.SelectedIndex];
-				selectedSpeed = 0;
-				UpdateMediaStatus();
-				UpdateWritingSpeedList();
-			}
+            if (driveListBox.SelectedIndex >= 0)
+            {
+                selectedDrive = driveId[driveListBox.SelectedIndex];
+                selectedSpeed = 0;
+                UpdateMediaStatus();
+                UpdateWritingSpeedList();
+            }
         }
         
         private void OnSpeedSelected(object sender, SelectionChangedEventArgs e)
         {
-			if (writingSpeedListBox.SelectedIndex >= 0 && writingSpeed != null)
-				selectedSpeed = writingSpeed[writingSpeedListBox.SelectedIndex];
+            if (writingSpeedListBox.SelectedIndex >= 0 && writingSpeed != null)
+                selectedSpeed = writingSpeed[writingSpeedListBox.SelectedIndex];
         }
 
         //trial

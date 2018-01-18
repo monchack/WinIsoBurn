@@ -10,18 +10,18 @@ namespace WinIsoBurn
     /// </summary>
     public partial class Page4 : Page
     {
-		bool isCanceled;
-		public Page4(bool _isCanceled) 
+        bool isCanceled;
+        public Page4(bool _isCanceled) 
         {
-			isCanceled = _isCanceled;
+            isCanceled = _isCanceled;
             InitializeComponent();
             this.WindowTitle = Properties.Resources.Page4_WindowTitle;
         }
 
-		private void OnLoaded(object sender, RoutedEventArgs e)
-		{
-			NavigationService.RemoveBackEntry();
-		}	
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            NavigationService.RemoveBackEntry();
+        }
 
         private void Close_Click(object sender, RoutedEventArgs e)
         {

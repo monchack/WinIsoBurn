@@ -24,7 +24,7 @@ namespace WinIsoBurn
 
         private void NextPage_Click( object sender, RoutedEventArgs e )
         {
-			if (checkISO()) this.NavigationService.Navigate(new Page2(mainWindow));
+            if (checkISO()) this.NavigationService.Navigate(new Page2(mainWindow));
         }
 
         private void Cancel_Click( object sender, RoutedEventArgs e )
@@ -34,17 +34,17 @@ namespace WinIsoBurn
 
         private void File_Select_Click(object sender, RoutedEventArgs e)
         {
-			System.Windows.Forms.OpenFileDialog dlg = new System.Windows.Forms.OpenFileDialog();
+            System.Windows.Forms.OpenFileDialog dlg = new System.Windows.Forms.OpenFileDialog();
             dlg.Title = Properties.Resources.Page1_OpenFileDialogTitle;
-			dlg.Filter = "ISO files (*.iso;*.img)|*.iso;*.img|All files (*.*)|*.*";
-			dlg.FilterIndex = 1;
-			dlg.ShowDialog();
-			if (dlg.FileName != string.Empty)
-			{
-				Application.Current.Properties["sourceFile"] = dlg.FileName;
-				selectedFileNameBox.Text = dlg.FileName;
-				NextPage.IsEnabled = true;
-			}
+            dlg.Filter = "ISO files (*.iso;*.img)|*.iso;*.img|All files (*.*)|*.*";
+            dlg.FilterIndex = 1;
+            dlg.ShowDialog();
+            if (dlg.FileName != string.Empty)
+            {
+                Application.Current.Properties["sourceFile"] = dlg.FileName;
+                selectedFileNameBox.Text = dlg.FileName;
+                NextPage.IsEnabled = true;
+            }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
