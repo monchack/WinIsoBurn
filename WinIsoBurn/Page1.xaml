@@ -8,7 +8,7 @@
       d:DesignHeight="300" d:DesignWidth="420"
 	  Title="Page1" Width="420" Loaded="Page_Loaded" >
     <Grid>
-        <TextBlock Text="{x:Static prop:Resources.Page1_Title}" VerticalAlignment="Top" Foreground="#003399" FontSize="16" TextAlignment="Left" Padding="0,8" Margin="0,12,63,0" HorizontalAlignment="Right" TextWrapping="Wrap" />
+        <TextBlock Text="{x:Static prop:Resources.Page1_Title}" VerticalAlignment="Top" Foreground="#003399" FontSize="16" TextAlignment="Left" Padding="0,8" Margin="21,18,20,0" HorizontalAlignment="Left" TextWrapping="Wrap" />
             <TextBox Name="selectedFileNameBox" VerticalAlignment="Top" IsReadOnly="True" Padding="2" Margin="21,75,20,0" />
             <Button Content="{x:Static prop:Resources.Page1_ButtonFileSelect}" HorizontalAlignment="Right" Name="button1" Click="File_Select_Click" Padding="8,1"  VerticalAlignment="Top" Margin="0,118,20,0"></Button>
             <StatusBar Name="statusBar1" Grid.Column="1" VerticalAlignment="Bottom" Panel.ZIndex="-1" >
